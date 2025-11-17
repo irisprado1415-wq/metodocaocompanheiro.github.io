@@ -1,0 +1,520 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Cão Companheiro - Curso de Adestramento Canino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Configurações Gerais e Variáveis --- */
+        :root {
+            --primary-color: #2c3e50; /* Azul Marinho */
+            --secondary-color: #e67e22; /* Laranja */
+            --text-color: #34495e;
+            --background-color: #f8f9fa;
+            --white-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+        }
+
+        /* --- Cabeçalho --- */
+        .header {
+            background: var(--white-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* --- Seção Herói --- */
+        .hero {
+            /* Imagem de um Golden Retriever obediente e feliz ao lado de seu dono, em um parque. */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1548681528-6a5c45b66b42?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white-color);
+            padding-top: 80px; /* Evita que o conteúdo fique atrás do header fixo */
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: var(--white-color);
+        }
+
+        .hero-content p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* --- Seção Problema --- */
+        .problem-section {
+            background: var(--background-color);
+        }
+        .problem-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+        .problem-item {
+            flex-basis: 22%;
+            min-width: 250px;
+        }
+        .problem-item span {
+            font-size: 3em;
+        }
+        .problem-item h3 {
+            margin-top: 15px;
+        }
+
+        /* --- Seção Solução/Curso --- */
+        .solution-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .solution-text {
+            flex: 1;
+        }
+        .solution-image {
+            flex: 1;
+            text-align: center;
+        }
+        .solution-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* --- Seção Módulos --- */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .module-card {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        /* --- Seção Instrutor --- */
+        .instructor-section {
+             background: var(--background-color);
+        }
+        .instructor-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .instructor-image {
+             flex-shrink: 0;
+             text-align: center;
+        }
+        .instructor-image img {
+            max-width: 250px;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+        }
+        
+        /* --- Seção Depoimentos --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: var(--background-color);
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 5px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid var(--secondary-color);
+        }
+
+        /* --- Seção Oferta --- */
+        .offer-section {
+            background: var(--primary-color);
+            color: var(--white-color);
+            text-align: center;
+        }
+        .offer-section .section-title, .offer-section h3 {
+             color: var(--white-color);
+        }
+        .price-box {
+            background: var(--white-color);
+            color: var(--text-color);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .price-box .old-price {
+            text-decoration: line-through;
+            font-size: 1.2em;
+            opacity: 0.7;
+        }
+        .price-box .new-price {
+            font-size: 2em;
+            color: var(--primary-color);
+        }
+        .price-box .new-price span {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        .guarantee {
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        /* --- Seção FAQ --- */
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+        }
+        .faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active::after {
+            transform: rotate(45deg);
+            content: 'x';
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding-top: 0;
+        }
+        .faq-question.active + .faq-answer {
+            padding-top: 15px;
+        }
+
+        /* --- Rodapé --- */
+        .footer {
+            background: var(--primary-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            .section-title { font-size: 2em; }
+            .hero-content h1 { font-size: 2.5em; line-height: 1.2; } /* Ajustado para melhor visualização mobile */
+            .hero-content p { font-size: 1.1em; } /* Ajustado */
+            .solution-content, .instructor-content { flex-direction: column; }
+            .header .container { flex-direction: column; gap: 10px;}
+            .price-box .new-price span { font-size: 2em; } /* Reduz o tamanho do preço grande no mobile */
+            .instructor-image { order: -1; margin-bottom: 20px; } /* Coloca a foto do instrutor primeiro no mobile */
+            .problem-item { flex-basis: 45%; } /* 2 itens por linha no mobile */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">Método Cão Companheiro</a>
+            <!-- Mantém o link para a seção de oferta para incentivar o scroll -->
+            <a href="#oferta" class="cta-button">COMPRAR AGORA</a> 
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>O Cão Obediente e Feliz que Você Sempre Sonhou, a Poucos Cliques de Distância.</h1>
+                <p>Descubra o método simples e positivo para transformar o comportamento do seu melhor amigo em apenas 15 minutos por dia, sem broncas ou punições.</p>
+                <!-- Mantém o link para a seção de oferta para incentivar o scroll -->
+                <a href="#oferta" class="cta-button">QUERO TRANSFORMAR MEU CÃO AGORA!</a>
+            </div>
+        </section>
+
+        <section class="problem-section section">
+            <div class="container">
+                <h2 class="section-title">Você se identifica com alguma destas situações?</h2>
+                <div class="problem-list">
+                    <div class="problem-item">
+                        <span>🐾</span>
+                        <h3>Passeios estressantes?</h3>
+                        <p>Ele puxa a guia e late para tudo?</p>
+                    </div>
+                    <div class="problem-item">
+                        <span>🏠</span>
+                        <h3>Casa de cabeça para baixo?</h3>
+                        <p>Seus móveis são os brinquedos preferidos dele?</p>
+                    </div>
+                    <div class="problem-item">
+                        <span>🚽</span>
+                        <h3>Xixi no lugar errado?</h3>
+                        <p>Você já tentou de tudo e nada funciona?</p>
+                    </div>
+                    <div class="problem-item">
+                        <span>🗣️</span>
+                        <h3>Latidos sem fim?</h3>
+                        <p>As visitas e os vizinhos não aguentam mais?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container solution-content">
+                <div class="solution-text">
+                    <h2>Apresentamos o Método Cão Companheiro!</h2>
+                    <p>O único curso online que te ensina a entender a mente do seu cão e a usar técnicas de reforço positivo para construir uma relação de confiança e respeito. Adeus, estresse. Olá, harmonia.</p>
+                    <p>Com aulas práticas e direto ao ponto, você vai ver resultados surpreendentes em poucas semanas.</p>
+                </div>
+                <div class="solution-image">
+                    <!-- Placeholder: Imagem de um pet feliz ou de um notebook com as aulas do curso -->
+                    <img src="https://placehold.co/450x300/2c3e50/ffffff?text=Método+Cão+Companheiro" alt="Imagem do Curso Método Cão Companheiro">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: var(--background-color);">
+            <div class="container">
+                <h2 class="section-title">Uma Jornada Completa Para o Sucesso</h2>
+                <div class="modules-grid">
+                    <div class="module-card"><h3>Módulo 1: A Base de Tudo</h3><p>Entendendo a psicologia canina e a comunicação.</p></div>
+                    <div class="module-card"><h3>Módulo 2: Comandos Essenciais</h3><p>Senta, deita, fica, vem (de forma divertida!).</p></div>
+                    <div class="module-card"><h3>Módulo 3: O Passeio Perfeito</h3><p>Como andar com a guia frouxa para sempre.</p></div>
+                    <div class="module-card"><h3>Módulo 4: Boas Maneiras em Casa</h3><p>Acabando com a destruição e o xixi fora do lugar.</p></div>
+                    <div class="module-card"><h3>Módulo 5: Socialização Inteligente</h3><p>Como interagir com outros cães e pessoas.</p></div>
+                    <div class="module-card"><h3>Módulo 6: Resolvendo Problemas</h3><p>Latidos, ansiedade de separação e mais.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section instructor-section">
+            <div class="container instructor-content">
+                <div class="instructor-image">
+                    <!-- Placeholder: Foto do Instrutor (homem sorrindo com um cachorro) -->
+                    <img src="https://placehold.co/250x250/e67e22/ffffff?text=Ricardo+Mendes" alt="Foto do Instrutor Ricardo Mendes">
+                </div>
+                <div class="instructor-bio">
+                    <h2>Conheça seu Instrutor, Ricardo Mendes</h2>
+                    <p>Adestrador profissional há mais de 10 anos e apaixonado por criar laços fortes entre cães e suas famílias. Já ajudei mais de 2.000 alunos a alcançarem a harmonia em seus lares através da minha metodologia positiva e eficaz. Acredito que todo cão pode ser um companheiro incrível, basta que a gente aprenda a falar a língua deles.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Veja o que nossos alunos estão dizendo!</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"O curso salvou minha sanidade! O Thor parou de destruir minhas sandálias e hoje é um cão muito mais calmo e feliz. Recomendo demais!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://placehold.co/50x50/34495e/ffffff?text=M" alt="Foto da aluna Mariana S.">
+                            <strong>Mariana S. e o cão Thor</strong>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Eu não sabia mais o que fazer com os latidos da Luna. As aulas são tão fáceis de seguir que em uma semana já vi uma diferença enorme. Obrigada!"</p>
+                        <div class="testimonial-author">
+                             <img src="https://placehold.co/50x50/34495e/ffffff?text=J" alt="Foto do aluno João P.">
+                            <strong>João P. e a cadela Luna</strong>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Fantástico! O método positivo realmente funciona. O curso é completo e o suporte na comunidade é um diferencial incrível. Vale cada centavo."</p>
+                        <div class="testimonial-author">
+                             <img src="https://placehold.co/50x50/34495e/ffffff?text=C" alt="Foto da aluna Clara F.">
+                            <strong>Clara F. e o cão Bidu</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="oferta" class="section offer-section">
+            <div class="container">
+                <h2 class="section-title">Pronto para começar a transformação?</h2>
+                <h3>Ao se inscrever hoje, você também leva <span style="text-decoration: underline;">GRÁTIS:</span></h3>
+                <p><strong>Bônus 1:</strong> Acesso direto ao conteudo e contato direto com os criadores para tirar qualquer duvida.</p>
+                
+                <div class="price-box">
+                    <p class="old-price">De R$ 59,99</p>
+                    <p>Por apenas:</p>
+                    <p class="new-price">4x de <span>R$ 5,90</span></p>
+                    <p>ou R$ 19,99 a vista</p>
+                    <br>
+                    <!-- Link de Checkout Atualizado para Monetizze -->
+                    <a href="https://app.monetizze.com.br/checkout/DTA361310" class="cta-button" style="padding: 20px 40px; font-size: 1.5em;">SIM, QUERO MEU CÃO EDUCADO!</a>
+                </div>
+                <p class="guarantee">🔒 Risco Zero! Você tem 7 dias de garantia incondicional. Se não amar o curso, devolvemos 100% do seu dinheiro.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <div class="faq-item">
+                    <button class="faq-question">Por quanto tempo terei acesso ao curso?</button>
+                    <div class="faq-answer"><p>O acesso é vitalício! Você pode assistir às aulas quantas vezes quiser, no seu próprio ritmo, e ainda terá acesso a todas as futuras atualizações.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">O curso funciona para cães de qualquer raça ou idade?</button>
+                    <div class="faq-answer"><p>Sim! A metodologia é baseada em reforço positivo e psicologia canina, que são princípios universais. Funciona para filhotes, cães adultos e idosos, de qualquer raça ou porte.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Preciso de algum equipamento especial?</button>
+                    <div class="faq-answer"><p>Não! Você precisará apenas de itens básicos que todo dono de cão já tem: coleira, guia e petiscos que seu cão adore. Não usamos nenhum método aversivo como coleiras de choque ou enforcadores.</p></div>
+                </div>
+                 <div class="faq-item">
+                    <button class="faq-question">Como receberei o acesso?</button>
+                    <div class="faq-answer"><p>Imediatamente após a confirmação do pagamento, você receberá um e-mail com seu login e senha para acessar a nossa área de membros exclusiva.</p></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Método Cão Companheiro. Todos os direitos reservados.</p>
+            <p>Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Script para o FAQ (Acordeão) ---
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                
+                // Fecha outras respostas abertas (opcional, mas melhora a UX)
+                faqQuestions.forEach(otherButton => {
+                    if (otherButton !== button && otherButton.classList.contains('active')) {
+                        otherButton.classList.remove('active');
+                        otherButton.nextElementSibling.style.maxHeight = null;
+                    }
+                });
+
+                button.classList.toggle('active');
+
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 15 + 'px'; // +15 para padding
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
