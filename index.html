@@ -1,20 +1,27 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Método Cão Companheiro - Curso de Adestramento Canino</title>
+    <title>Assessoria Acadêmica Cochabamba | Premium</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* --- Configurações Gerais e Variáveis --- */
+        /* --- CONFIGURAÇÕES GERAIS E VARIÁVEIS --- */
         :root {
-            --primary-color: #2c3e50; /* Azul Marinho */
-            --secondary-color: #e67e22; /* Laranja */
-            --text-color: #34495e;
-            --background-color: #f8f9fa;
-            --white-color: #ffffff;
+            --primary: #0f2c4c; /* Azul Profundo */
+            --accent: #c49a6c; /* Dourado/Bronze Elegante */
+            --light: #f4f7f6;
+            --text-dark: #2c3e50;
+            --white: #ffffff;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --nav-height: 70px; /* Altura da barra de navegação */
         }
 
         * {
@@ -24,497 +31,693 @@
         }
 
         html {
-            scroll-behavior: smooth;
+            /* Ajusta o scroll para ignorar a navbar fixa */
+            scroll-padding-top: var(--nav-height); 
         }
 
         body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-color);
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--light);
             line-height: 1.6;
+            padding-top: var(--nav-height); /* Adiciona padding para o conteúdo não ficar escondido pela navbar */
         }
 
         h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            font-family: var(--font-title);
+            font-weight: 700;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
         
-        .section-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
+        /* UTILITÁRIOS */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--white-color);
-            padding: 15px 30px;
-            font-size: 1.1em;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            background-color: #d35400;
-            transform: translateY(-3px);
-        }
-
-        /* --- Cabeçalho --- */
-        .header {
-            background: var(--white-color);
-            padding: 15px 0;
+        /* --- BARRA DE NAVEGAÇÃO (NAVBAR) --- */
+        nav {
+            background-color: var(--primary);
+            color: var(--white);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .header .container {
+        .navbar-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        
-        .header .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5em;
-            color: var(--primary-color);
-            text-decoration: none;
+            width: 100%;
         }
 
-        /* --- Seção Herói --- */
-        .hero {
-            /* Imagem de um Golden Retriever obediente e feliz ao lado de seu dono, em um parque. */
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1548681528-6a5c45b66b42?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
-            min-height: 100vh;
+        .logo {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        /* Menu de Contato com Dropdown */
+        .contact-dropdown {
+            position: relative;
+        }
+
+        .contact-button {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #d1b18d; /* Tom mais claro */
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--white);
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            color: var(--text-dark);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+        
+        .contact-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            /* Fundo com a imagem do Cristo de la Concordia do Dropbox */
+            background: linear-gradient(rgba(15, 44, 76, 0.7), rgba(15, 44, 76, 0.5)), 
+                        url('https://www.dropbox.com/scl/fi/q6ar13ddk55fxl99mgw5l/cristo-de-la-concordia-003.jpg?rlkey=01to2fhbwwrluryf623qtbxml&st=yif90zn3&dl=1');
+                        
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .btn-cta {
+            padding: 15px 40px;
+            background-color: var(--accent);
+            color: var(--primary);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(196, 154, 108, 0.4);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* --- ESTILO DE SEÇÃO COMPARTILHADO --- */
+        .section-padding {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-header .line {
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 0 auto;
+        }
+        
+        /* --- SEÇÃO MISSÃO E VISÃO --- */
+        .mission-vision-section {
+            background-color: var(--light);
+        }
+
+        .mv-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .mv-item {
+            flex-basis: 45%;
+            text-align: center;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .mv-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .mv-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- SEÇÃO DE PACOTES (Cartões Elegantes) --- */
+        .packages-section {
+            background-color: var(--white);
+            margin-top: -50px;
+            border-radius: 30px 30px 0 0;
+            position: relative;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 15px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(15, 44, 76, 0.15);
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .card.featured {
+            background: linear-gradient(145deg, #ffffff 0%, #fdfbf7 100%);
+            border: 2px solid var(--accent);
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-family: var(--font-title);
+            font-weight: 700;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .price span { font-size: 1rem; color: #999; font-weight: 300; }
+
+        .card ul li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+            color: #555;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: var(--white-color);
-            padding-top: 80px; /* Evita que o conteúdo fique atrás do header fixo */
+            gap: 10px;
         }
 
-        .hero-content h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            color: var(--white-color);
-        }
-
-        .hero-content p {
-            font-size: 1.3em;
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-        }
-
-        /* --- Seção Problema --- */
-        .problem-section {
-            background: var(--background-color);
-        }
-        .problem-list {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            text-align: center;
-        }
-        .problem-item {
-            flex-basis: 22%;
-            min-width: 250px;
-        }
-        .problem-item span {
-            font-size: 3em;
-        }
-        .problem-item h3 {
-            margin-top: 15px;
-        }
-
-        /* --- Seção Solução/Curso --- */
-        .solution-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        .solution-text {
-            flex: 1;
-        }
-        .solution-image {
-            flex: 1;
-            text-align: center;
-        }
-        .solution-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+        .card ul li i { color: var(--accent); }
         
-        /* --- Seção Módulos --- */
-        .modules-grid {
+        /* --- SEÇÃO DEPOIMENTOS / SUPORTE --- */
+        .testimonials-section {
+            background-color: var(--light);
+        }
+
+        .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-        }
-        .module-card {
-            background: var(--white-color);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--secondary-color);
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* --- Seção Instrutor --- */
-        .instructor-section {
-             background: var(--background-color);
-        }
-        .instructor-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        .instructor-image {
-             flex-shrink: 0;
-             text-align: center;
-        }
-        .instructor-image img {
-            max-width: 250px;
-            border-radius: 50%;
-            border: 5px solid var(--secondary-color);
-        }
-        
-        /* --- Seção Depoimentos --- */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
         .testimonial-card {
-            background: var(--background-color);
-            padding: 25px;
-            border-radius: 10px;
-            border-top: 5px solid var(--primary-color);
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .testimonial-card p {
+            border-left: 5px solid var(--accent);
             font-style: italic;
+        }
+
+        .testimonial-card p {
             margin-bottom: 15px;
+            color: #444;
         }
-        .testimonial-author {
+
+        .client-info {
+            font-style: normal;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-top: 10px;
+        }
+
+        .client-info span {
+            font-weight: 400;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* --- SEÇÃO EQUIPE --- */
+        .team-section {
+            background-color: var(--white);
+        }
+
+        .team-grid {
             display: flex;
-            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
         }
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
+
+        .team-member {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            margin-right: 15px;
-            border: 2px solid var(--secondary-color);
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--accent);
+            padding: 3px;
+        }
+        
+        /* PLACES HOLDERS PARA AS FOTOS */
+        
+        /* DANIEL BRAGA: Foto Pessoal */
+        .avatar[alt="Daniel Braga"] { 
+            background-image: url('https://www.dropbox.com/scl/fi/v5e6fzv2jw7nlq6wuq2bq/WhatsApp-Image-2025-12-11-at-22.44.48.jpeg?rlkey=hped03abfxd2v184d9t3dqdvt&st=fhg086g6&dl=1'); 
+            background-size: cover; 
+            background-position: center; 
         }
 
-        /* --- Seção Oferta --- */
-        .offer-section {
-            background: var(--primary-color);
-            color: var(--white-color);
+        /* EIKY CLAURE: Foto Pessoal */
+        .avatar[alt="Eiky Claure"] { 
+            background-image: url('https://www.dropbox.com/scl/fi/3h1a0aahzwn2m3ouq7pca/d3a4f61d-ef94-439b-9dac-b3888c5a0c09.jpg?rlkey=68h9vqnx5hpdbedwwwaw7cud3&st=tzuc4t1w&dl=1'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+
+        /* GABRIELLY RODRIGUES: Foto Pessoal */
+        .avatar[alt="Gabrielly Rodrigues"] { 
+            background-image: url('https://www.dropbox.com/scl/fi/ml9g0hl5im4uh4yo9qq1r/8bb594ed-ae3b-4a3d-9ec5-4432391ad4ec.jpg?rlkey=ytbx0mxrghzxkclaolc0hbn3o&st=b3pmogwo&dl=1'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+
+        /* AUGUSTO MARINELLI: Foto Pessoal */
+        .avatar[alt="Augusto Marinelli"] { 
+            background-image: url('https://www.dropbox.com/scl/fi/yesttewbfubvs40n8ean9/fdca007e-1c63-43a1-b97c-a85157b54afd.jpg?rlkey=lrjafhjxjluo66jivbe6jy7ae&st=nacssvfp&dl=1'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        
+        /* GUSTAVO REIS: Foto Pessoal */
+        .avatar[alt="Gustavo Reis"] { 
+            background-image: url('https://www.dropbox.com/scl/fi/bjem53hdr0zit2llpg0rf/628d8281-6789-4371-a24d-acf84c7f5ecd.jpg?rlkey=s36n2v266p9j9f8ufcjtxw599&st=ht2tdtco&dl=1'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        
+
+        .team-member h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .role-tag {
+            display: inline-block;
+            background-color: rgba(196, 154, 108, 0.2);
+            color: #a37848;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
             text-align: center;
+            padding: 40px 20px;
         }
-        .offer-section .section-title, .offer-section h3 {
-             color: var(--white-color);
-        }
-        .price-box {
-            background: var(--white-color);
-            color: var(--text-color);
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 40px auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .price-box .old-price {
-            text-decoration: line-through;
-            font-size: 1.2em;
-            opacity: 0.7;
-        }
-        .price-box .new-price {
-            font-size: 2em;
-            color: var(--primary-color);
-        }
-        .price-box .new-price span {
-            font-size: 2.5em;
-            font-weight: bold;
-        }
-        .guarantee {
-            margin-top: 30px;
-            font-weight: bold;
-        }
+        
+        footer p { opacity: 0.7; font-size: 0.9rem; }
 
-        /* --- Seção FAQ --- */
-        .faq-item {
-            border-bottom: 1px solid #ddd;
-            padding: 20px 0;
-        }
-        .faq-question {
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: var(--primary-color);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-        }
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5em;
-            transition: transform 0.3s ease;
-        }
-        .faq-question.active::after {
-            transform: rotate(45deg);
-            content: 'x';
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            padding-top: 0;
-        }
-        .faq-question.active + .faq-answer {
-            padding-top: 15px;
-        }
-
-        /* --- Rodapé --- */
-        .footer {
-            background: var(--primary-color);
-            color: var(--white-color);
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        /* --- Responsividade --- */
+        /* Responsividade Mobile */
         @media (max-width: 768px) {
-            .section-title { font-size: 2em; }
-            .hero-content h1 { font-size: 2.5em; line-height: 1.2; } /* Ajustado para melhor visualização mobile */
-            .hero-content p { font-size: 1.1em; } /* Ajustado */
-            .solution-content, .instructor-content { flex-direction: column; }
-            .header .container { flex-direction: column; gap: 10px;}
-            .price-box .new-price span { font-size: 2em; } /* Reduz o tamanho do preço grande no mobile */
-            .instructor-image { order: -1; margin-bottom: 20px; } /* Coloca a foto do instrutor primeiro no mobile */
-            .problem-item { flex-basis: 45%; } /* 2 itens por linha no mobile */
+            .navbar-content {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            nav {
+                height: auto;
+            }
+            .nav-links {
+                display: none; /* Esconde links para mobile, pode ser melhorado com um menu hamburger se necessário */
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links a {
+                padding: 5px 0;
+            }
+
+            .contact-dropdown {
+                margin-top: 10px;
+            }
+            
+            .dropdown-menu {
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            body {
+                padding-top: 80px; /* Ajusta o padding do body */
+            }
         }
 
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="container">
-            <a href="#" class="logo">Método Cão Companheiro</a>
-            <!-- Mantém o link para a seção de oferta para incentivar o scroll -->
-            <a href="#oferta" class="cta-button">COMPRAR AGORA</a> 
+    <nav>
+        <div class="container navbar-content">
+            
+            <a href="#" class="logo">INTEGRA MED</a>
+            
+            <div class="nav-links">
+                <a href="#planos">Preços</a>
+                <a href="#equipe">Equipe</a>
+                <a href="#suporte">Suporte</a>
+            </div>
+
+            <div class="contact-dropdown">
+                <button class="contact-button">
+                    Contato <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="mailto:IntegraMed.cbba@gmail.com"><i class="fa-regular fa-envelope"></i> E-mail</a>
+                    
+                    <a href="https://wa.me/59174425178" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    
+                    <a href="https://www.instagram.com/integramed.cbba?igsh=MXQ3bWdvMjJjNm1jbQ%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
         </div>
+    </nav>
+
+
+    <header>
+        <h1>Bem-vindo a Cochabamba</h1>
+        <p>Assessoria especializada para estudantes de medicina e intercambistas na Bolívia. Conforto, segurança e integração.</p>
+        <a href="#planos" class="btn-cta">Iniciar minha jornada</a>
     </header>
-
-    <main>
-
-        <section class="hero">
-            <div class="hero-content">
-                <h1>O Cão Obediente e Feliz que Você Sempre Sonhou, a Poucos Cliques de Distância.</h1>
-                <p>Descubra o método simples e positivo para transformar o comportamento do seu melhor amigo em apenas 15 minutos por dia, sem broncas ou punições.</p>
-                <!-- Mantém o link para a seção de oferta para incentivar o scroll -->
-                <a href="#oferta" class="cta-button">QUERO TRANSFORMAR MEU CÃO AGORA!</a>
-            </div>
-        </section>
-
-        <section class="problem-section section">
-            <div class="container">
-                <h2 class="section-title">Você se identifica com alguma destas situações?</h2>
-                <div class="problem-list">
-                    <div class="problem-item">
-                        <span>🐾</span>
-                        <h3>Passeios estressantes?</h3>
-                        <p>Ele puxa a guia e late para tudo?</p>
-                    </div>
-                    <div class="problem-item">
-                        <span>🏠</span>
-                        <h3>Casa de cabeça para baixo?</h3>
-                        <p>Seus móveis são os brinquedos preferidos dele?</p>
-                    </div>
-                    <div class="problem-item">
-                        <span>🚽</span>
-                        <h3>Xixi no lugar errado?</h3>
-                        <p>Você já tentou de tudo e nada funciona?</p>
-                    </div>
-                    <div class="problem-item">
-                        <span>🗣️</span>
-                        <h3>Latidos sem fim?</h3>
-                        <p>As visitas e os vizinhos não aguentam mais?</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container solution-content">
-                <div class="solution-text">
-                    <h2>Apresentamos o Método Cão Companheiro!</h2>
-                    <p>O único curso online que te ensina a entender a mente do seu cão e a usar técnicas de reforço positivo para construir uma relação de confiança e respeito. Adeus, estresse. Olá, harmonia.</p>
-                    <p>Com aulas práticas e direto ao ponto, você vai ver resultados surpreendentes em poucas semanas.</p>
-                </div>
-                <div class="solution-image">
-                    <!-- Placeholder: Imagem de um pet feliz ou de um notebook com as aulas do curso -->
-                    <img src="https://placehold.co/450x300/2c3e50/ffffff?text=Método+Cão+Companheiro" alt="Imagem do Curso Método Cão Companheiro">
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="background: var(--background-color);">
-            <div class="container">
-                <h2 class="section-title">Uma Jornada Completa Para o Sucesso</h2>
-                <div class="modules-grid">
-                    <div class="module-card"><h3>Módulo 1: A Base de Tudo</h3><p>Entendendo a psicologia canina e a comunicação.</p></div>
-                    <div class="module-card"><h3>Módulo 2: Comandos Essenciais</h3><p>Senta, deita, fica, vem (de forma divertida!).</p></div>
-                    <div class="module-card"><h3>Módulo 3: O Passeio Perfeito</h3><p>Como andar com a guia frouxa para sempre.</p></div>
-                    <div class="module-card"><h3>Módulo 4: Boas Maneiras em Casa</h3><p>Acabando com a destruição e o xixi fora do lugar.</p></div>
-                    <div class="module-card"><h3>Módulo 5: Socialização Inteligente</h3><p>Como interagir com outros cães e pessoas.</p></div>
-                    <div class="module-card"><h3>Módulo 6: Resolvendo Problemas</h3><p>Latidos, ansiedade de separação e mais.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section instructor-section">
-            <div class="container instructor-content">
-                <div class="instructor-image">
-                    <!-- Placeholder: Foto do Instrutor (homem sorrindo com um cachorro) -->
-                    <img src="https://placehold.co/250x250/e67e22/ffffff?text=Ricardo+Mendes" alt="Foto do Instrutor Ricardo Mendes">
-                </div>
-                <div class="instructor-bio">
-                    <h2>Conheça seu Instrutor, Ricardo Mendes</h2>
-                    <p>Adestrador profissional há mais de 10 anos e apaixonado por criar laços fortes entre cães e suas famílias. Já ajudei mais de 2.000 alunos a alcançarem a harmonia em seus lares através da minha metodologia positiva e eficaz. Acredito que todo cão pode ser um companheiro incrível, basta que a gente aprenda a falar a língua deles.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Veja o que nossos alunos estão dizendo!</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p>"O curso salvou minha sanidade! O Thor parou de destruir minhas sandálias e hoje é um cão muito mais calmo e feliz. Recomendo demais!"</p>
-                        <div class="testimonial-author">
-                            <img src="https://placehold.co/50x50/34495e/ffffff?text=M" alt="Foto da aluna Mariana S.">
-                            <strong>Mariana S. e o cão Thor</strong>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Eu não sabia mais o que fazer com os latidos da Luna. As aulas são tão fáceis de seguir que em uma semana já vi uma diferença enorme. Obrigada!"</p>
-                        <div class="testimonial-author">
-                             <img src="https://placehold.co/50x50/34495e/ffffff?text=J" alt="Foto do aluno João P.">
-                            <strong>João P. e a cadela Luna</strong>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Fantástico! O método positivo realmente funciona. O curso é completo e o suporte na comunidade é um diferencial incrível. Vale cada centavo."</p>
-                        <div class="testimonial-author">
-                             <img src="https://placehold.co/50x50/34495e/ffffff?text=C" alt="Foto da aluna Clara F.">
-                            <strong>Clara F. e o cão Bidu</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="oferta" class="section offer-section">
-            <div class="container">
-                <h2 class="section-title">Pronto para começar a transformação?</h2>
-                <h3>Ao se inscrever hoje, você também leva <span style="text-decoration: underline;">GRÁTIS:</span></h3>
-                <p><strong>Bônus 1:</strong> Acesso direto ao conteudo e contato direto com os criadores para tirar qualquer duvida.</p>
-                
-                <div class="price-box">
-                    <p class="old-price">De R$ 59,99</p>
-                    <p>Por apenas:</p>
-                    <p class="new-price">4x de <span>R$ 5,90</span></p>
-                    <p>ou R$ 19,99 a vista</p>
-                    <br>
-                    <!-- Link de Checkout Atualizado para Monetizze -->
-                    <a href="https://app.monetizze.com.br/checkout/DTA361310" class="cta-button" style="padding: 20px 40px; font-size: 1.5em;">SIM, QUERO MEU CÃO EDUCADO!</a>
-                </div>
-                <p class="guarantee">🔒 Risco Zero! Você tem 7 dias de garantia incondicional. Se não amar o curso, devolvemos 100% do seu dinheiro.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Perguntas Frequentes</h2>
-                <div class="faq-item">
-                    <button class="faq-question">Por quanto tempo terei acesso ao curso?</button>
-                    <div class="faq-answer"><p>O acesso é vitalício! Você pode assistir às aulas quantas vezes quiser, no seu próprio ritmo, e ainda terá acesso a todas as futuras atualizações.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">O curso funciona para cães de qualquer raça ou idade?</button>
-                    <div class="faq-answer"><p>Sim! A metodologia é baseada em reforço positivo e psicologia canina, que são princípios universais. Funciona para filhotes, cães adultos e idosos, de qualquer raça ou porte.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Preciso de algum equipamento especial?</button>
-                    <div class="faq-answer"><p>Não! Você precisará apenas de itens básicos que todo dono de cão já tem: coleira, guia e petiscos que seu cão adore. Não usamos nenhum método aversivo como coleiras de choque ou enforcadores.</p></div>
-                </div>
-                 <div class="faq-item">
-                    <button class="faq-question">Como receberei o acesso?</button>
-                    <div class="faq-answer"><p>Imediatamente após a confirmação do pagamento, você receberá um e-mail com seu login e senha para acessar a nossa área de membros exclusiva.</p></div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Método Cão Companheiro. Todos os direitos reservados.</p>
-            <p>Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site.</p>
+    
+    <section class="mission-vision-section section-padding">
+        <div class="section-header">
+            <h2>Nossa Filosofia</h2>
+            <div class="line"></div>
         </div>
+        
+        <div class="mv-grid">
+            <div class="mv-item">
+                <i class="fa-solid fa-bullseye"></i>
+                <h3>Missão</h3>
+                <p>Descomplicar a transição acadêmica e residencial de estudantes estrangeiros em Cochabamba, oferecendo suporte integral e transparente para garantir foco total no sucesso universitário.</p>
+            </div>
+            
+            <div class="mv-item">
+                <i class="fa-solid fa-eye"></i>
+                <h3>Visão</h3>
+                <p>Ser a principal referência em assessoria estudantil na Bolívia, reconhecida pela excelência no serviço, pela alta taxa de sucesso dos nossos clientes e pela facilidade de adaptação oferecida.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="planos" class="packages-section section-padding">
+        <div class="section-header">
+            <h2>Nossos Planos Exclusivos</h2>
+            <div class="line"></div>
+            <p style="margin-top: 15px; color: #666;">Escolha o nível de suporte ideal para sua nova vida.</p>
+        </div>
+
+        <div class="grid-container">
+            
+            <div class="card">
+                <h3>Start Básico</h3>
+                <span class="price">R$ 2.000<span>/único</span></span>
+                <ul>
+                    <li><i class="fa-solid fa-file-contract"></i> Doc. Faculdade & Pessoal</li>
+                    <li><i class="fa-solid fa-money-bill-transfer"></i> Suporte com Cambista</li>
+                    <li><i class="fa-solid fa-plane-arrival"></i> Instrução de Voo e Chegada</li>
+                    <li style="color: #ccc; text-decoration: line-through;"><i class="fa-solid fa-house"></i> Assessoria Imobiliária</li>
+                </ul>
+            </div>
+
+            <div class="card featured">
+                <div class="badge">POPULAR</div>
+                <h3>Moradia & Doc</h3>
+                <span class="price">R$ 2.500<span>/único</span></span>
+                <ul>
+                    <li><i class="fa-solid fa-check-double"></i> <strong>Tudo do Plano Start</strong></li>
+                    <li><i class="fa-solid fa-key"></i> <strong>Assessoria Imobiliária</strong></li>
+                    <li><i class="fa-solid fa-building"></i> Seleção de Apartamento</li>
+                    <li><i class="fa-solid fa-handshake"></i> Contrato de Aluguel</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Experiência Med</h3>
+                <span class="price">R$ 3.100<span>/único</span></span>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> <strong>Tudo do Plano Moradia</strong></li>
+                    <li><i class="fa-solid fa-camera-retro"></i> Tour Turístico Cochabamba</li>
+                    <li><i class="fa-solid fa-user-doctor"></i> <strong>Kit Jaleco & Pijama</strong></li>
+                    <li><i class="fa-solid fa-shirt"></i> Itens Essenciais</li>
+                </ul>
+            </div>
+
+            <div class="card" style="border: 1px solid var(--accent);">
+                <h3>Premium VIP</h3>
+                <span class="price">R$ 4.000<span>/único</span></span>
+                <ul>
+                    <li><i class="fa-solid fa-star"></i> <strong>Experiência Completa</strong></li>
+                    <li><i class="fa-solid fa-comments"></i> <strong>6 Aulas de Espanhol</strong> (Nativa)</li>
+                    <li><i class="fa-solid fa-building-columns"></i> Abertura de Conta Bancária</li>
+                    <li><i class="fa-solid fa-crown"></i> Assessoria Prioritária</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="suporte" class="testimonials-section section-padding">
+        <div class="section-header">
+            <h2>Suporte & Feedback dos Clientes</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"O Pacote Moradia foi a minha salvação. Cheguei em Cochabamba e o apartamento estava exatamente como prometido, sem sustos ou burocracia. O pessoal da agência é nota 10 no suporte!"</p>
+                <span class="client-info">Mariana S. <span>(Estudante de Odontologia)</span></span>
+            </div>
+            
+            <div class="testimonial-card">
+                <p>"Escolhi o Premium VIP e não me arrependo. As aulas de espanhol com a professora nativa foram cruciais para o meu primeiro mês. A abertura da conta bancária me economizou horas de dor de cabeça."</p>
+                <span class="client-info">João P. <span>(Estudante de Medicina)</span></span>
+            </div>
+            
+            <div class="testimonial-card">
+                <p>"Graças à assessoria, minha documentação de faculdade foi aprovada de primeira. O suporte com o câmbio também foi muito seguro. Recomendo para quem busca tranquilidade na chegada."</p>
+                <span class="client-info">Carla L. <span>(Intercambista)</span></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipe" class="team-section section-padding">
+        <div class="section-header">
+            <h2>Nossa Equipe Local</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="team-grid">
+            
+            <div class="team-member">
+                <div class="avatar" alt="Daniel Braga"></div>
+                <h4>Daniel Braga</h4>
+                <span class="role-tag">Doc. & Trâmites Migratórios</span>
+                <p>Especialista em validação de diplomas e vistos de residência.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="avatar" alt="Eiky Claure"></div>
+                <h4>Eiky Claure</h4>
+                <span class="role-tag">Assessora Linguista (Nativa)</span>
+                <p>Responsável pelas aulas de imersão e facilitação da comunicação cultural.</p>
+            </div>
+            
+            <div class="team-member">
+                <div class="avatar" alt="Gabrielly Rodrigues"></div>
+                <h4>Gabrielly Rodrigues</h4>
+                <span class="role-tag">Marketing & Suporte Online</span>
+                <p>Cuida das comunicações da agência e suporte inicial ao cliente via redes.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="avatar" alt="Augusto Marinelli"></div>
+                <h4>Augusto Marinelli</h4>
+                <span class="role-tag">Assessor Geral & Bancário</span>
+                <p>Responsável pela recepção geral e abertura de contas bancárias.</p>
+            </div>
+
+            <div class="team-member">
+                <div class="avatar" alt="Gustavo Reis"></div>
+                <h4>Gustavo Reis</h4>
+                <span class="role-tag">Consultor Imobiliário</span>
+                <p>Encontra o apartamento ideal e negocia o contrato de aluguel para o cliente.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div style="font-size: 1.5rem; margin-bottom: 20px;">
+            <i class="fa-brands fa-whatsapp" style="margin: 0 10px;"></i>
+            <i class="fa-brands fa-instagram" style="margin: 0 10px;"></i>
+            <i class="fa-regular fa-envelope" style="margin: 0 10px;"></i>
+        </div>
+        <p>&copy; 2025 Assessoria Cochabamba. Transformando sonhos em realidade.</p>
     </footer>
-
-    <script>
-        // --- Script para o FAQ (Acordeão) ---
-        const faqQuestions = document.querySelectorAll('.faq-question');
-
-        faqQuestions.forEach(button => {
-            button.addEventListener('click', () => {
-                const answer = button.nextElementSibling;
-                
-                // Fecha outras respostas abertas (opcional, mas melhora a UX)
-                faqQuestions.forEach(otherButton => {
-                    if (otherButton !== button && otherButton.classList.contains('active')) {
-                        otherButton.classList.remove('active');
-                        otherButton.nextElementSibling.style.maxHeight = null;
-                    }
-                });
-
-                button.classList.toggle('active');
-
-                if (answer.style.maxHeight) {
-                    answer.style.maxHeight = null;
-                } else {
-                    answer.style.maxHeight = answer.scrollHeight + 15 + 'px'; // +15 para padding
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>
